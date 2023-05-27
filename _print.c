@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 					for (i = 0; str[i] != '\0'; i++)
 					{
 						buffer[buffer_i++] = str[i];
-						count += i;
+						count ++;
 					}
 					break;
 				case'%':
@@ -54,6 +54,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
+	buffer[buffer_i] = '\0';
 	va_end(args);
 	write(1, buffer, count);
 	return (count);

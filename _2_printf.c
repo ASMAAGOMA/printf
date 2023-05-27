@@ -49,6 +49,10 @@ int _printf_2(const char *format, ...)
 					ui = va_arg(args, unsigned int);
 					count += print_unsigned(buffer, buffer_i, ui, 10);
 					break;
+				case'%':
+					buffer[buffer_i++] = '%';
+					count++;
+					break;
 				default:
 					buffer[buffer_i++] = '%';
 					count++;
@@ -58,9 +62,10 @@ int _printf_2(const char *format, ...)
 			}
 		}
 	}
-			va_end(args);
-			write(1, buffer, count);
-			return (count);
+	buffer[buffer_i] = '\0';
+	va_end(args);
+	write(1, buffer, count);
+	return (count);
 }
 
 
