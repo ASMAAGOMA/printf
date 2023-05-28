@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_unsigned - function to convert the unsigned number
+ * print_helper - function to convert the unsigned number
  * to the desired numder system
  * @buffer: array where the output is stored
  * @buffer_i: the current index
@@ -9,7 +9,7 @@
  * Return: the value of count(success)
  */
 
-int print_unsigned(char *buffer, int buffer_i, unsigned int n, int base)
+int print_helper(char *buffer, int buffer_i, unsigned int n, int base)
 {
 	char digits[] = "0123456789ABCDEF";
 	char temp[50];

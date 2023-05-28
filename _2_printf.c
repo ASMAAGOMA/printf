@@ -4,10 +4,10 @@
 #include "main.h"
 #define BUFFER_SIZE 1024
 
-int print_unsigned(char *buffer, int buffer_i, unsigned int n, int base);
+int print_helper(char *buffer, int buffer_i, unsigned int n, int base);
 
 /**
- *_printf - function to print any thing
+ *_printf_2 - function to print any thing
  *@format: argument
  *Return: count(success)
  */
@@ -43,15 +43,11 @@ int _printf_2(const char *format, ...)
 						i = -i;
 					}
 					ui = (unsigned int)i;
-					count += print_unsigned(buffer, buffer_i, ui, 10);
+					count += print_helper(buffer, buffer_i, ui, 10);
 					break;
 				case'u':
 					ui = va_arg(args, unsigned int);
-					count += print_unsigned(buffer, buffer_i, ui, 10);
-					break;
-				case'%':
-					buffer[buffer_i++] = '%';
-					count++;
+					count += print_helper(buffer, buffer_i, ui, 10);
 					break;
 				default:
 					buffer[buffer_i++] = '%';
