@@ -8,7 +8,7 @@
 int main(void)
 {
     _puts("-----main----");
-    /*_printf("trinyg to print %li.", 12345678);*/
+    _printf("trinyg to print %li.", 12345678);
     _printf("trinyg to print %*i \n", 5, 20);
     _printf("Integers: %+i  \n", 3456);
     _printf("Integers: %+u \n", 3456);

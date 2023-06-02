@@ -1,9 +1,4 @@
 #include "main.h"
-/**
- * _longintlen - returns the length of a int.
- * @i: input string
- * Return: length
- */
 
 /**
  * _intlen - returns the length of a int.
@@ -12,26 +7,27 @@
  */
 unsigned int _intlen(int i)
 {
-    int l = 0;
+	int l = 0;
+
 	if (i == 0)
 		l = 1;
-    if (i < 0)
-    {
-        l++;
-    }
-    while(i != 0)
-    {
-        i /= 10;
-        l++;
-    }
-    return (l);
+	if (i < 0)
+	{
+		l++;
+	}
+	while (i != 0)
+	{
+		i /= 10;
+		l++;
+	}
+	return (l);
 }
 /**
  * _strlen - returns the length of a string.
  * @s: input string
  * Return: length
  */
-unsigned int _strlen (char *s)
+unsigned int _strlen(char *s)
 {
 	if (*s == '\0' || *s == '\n' || *s == 0)
 		return (0);
@@ -45,7 +41,7 @@ unsigned int _strlen (char *s)
  */
 int _putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 /**
  * _puts - prints a string followed by a new line
@@ -68,11 +64,12 @@ int _puts(char *s)
  */
 int _puts_buffer(char *s, unsigned int l)
 {
-    unsigned int i = 0;
+	unsigned int i = 0;
+
 	while (i < l)
-    {
-        _putchar(*s++);
-        i++;
-    }
+	{
+		_putchar(*s++);
+		i++;
+	}
 	return (l);
 }
