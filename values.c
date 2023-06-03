@@ -338,9 +338,9 @@ char *get_value_fs(va_list l, f_s s)
             tmp_list[0] = (char) va_arg(l, int);
             return (get_string(tmp_list, s));
             break;
-	    case 's':
-            temp1 = va_arg(l, char*);
-		    return (get_string(temp1, s));
+	case 's':
+	    temp1 = va_arg(l, char*);
+	    return (get_string(temp1, s));
             break;
         case '%':
             tmp_list[0] = '%';
@@ -349,6 +349,14 @@ char *get_value_fs(va_list l, f_s s)
         case 'p':
             temp1 = convert_x_s(l);
             return (get_num(temp1, s));
+            break;
+	case 'S':
+            temp1 = convert_S(l);
+            if (temp1 == NULL)
+            {
+                return (NULL);
+            }
+            return (get_string(temp1, s));
             break;
 
 	}
@@ -367,7 +375,6 @@ f_s get_fs(char **scount, va_list l)
     s.width = 0;
     s.length = 0;
     s.precision = 0;
-    s.has = 0;
 	while (**scount == '-' || **scount == '+' 
     || **scount == ' ' || **scount == '#' 
     || **scount == '0')
@@ -379,7 +386,6 @@ f_s get_fs(char **scount, va_list l)
     {
         s.width = va_arg(l, int);
         s.w_bi = 1;
-        s.has = 1;
         (*scount)++;
     }
     else {
@@ -402,7 +408,6 @@ f_s get_fs(char **scount, va_list l)
         {
             s.precision = va_arg(l, int);
             s.p_bi = 1;
-            s.has = 1;
             (*scount)++;
         }
         else 
@@ -430,7 +435,7 @@ f_s get_fs(char **scount, va_list l)
     if (**scount == 'd' || **scount == 'i' 
     || **scount == 'u' || **scount == 'o' 
     || **scount == 'x' || **scount == 'X' 
-    || **scount == 'c' || **scount == 's' 
+    || **scount == 'c' || **scount == 's' || **scount == 'S'
     || **scount == 'p' || **scount == '%' 
     || **scount == 'b' || **scount == 'r' || **scount == 'R')
     {

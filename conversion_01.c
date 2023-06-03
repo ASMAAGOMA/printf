@@ -40,7 +40,7 @@ char *convert_o_s(va_list l)
 	unsigned int temp, a;
 	char *r;
 
-	temp = va_arg(l, int);
+	temp = va_arg(l, unsigned int);
 	a = temp;
 	while (a != 0)
 	{
@@ -73,7 +73,7 @@ char *convert_lo_s(va_list l)
 	unsigned long int temp, a;
 	char *r;
 
-	temp = va_arg(l, long int);
+	temp = va_arg(l, unsigned long int);
 	a = temp;
 	while (a != 0)
 	{
@@ -106,7 +106,7 @@ char *convert_ho_s(va_list l)
 	unsigned short int temp, a;
 	char *r;
 
-	temp = (short) va_arg(l, int);
+	temp = (short) va_arg(l, unsigned int);
 	a = temp;
 	while (a != 0)
 	{
@@ -139,7 +139,7 @@ char *convert_x_s(va_list l)
 	unsigned int temp, a;
 	char *r;
 
-	temp = va_arg(l, int);
+	temp = va_arg(l, unsigned int);
 	a = temp;
 	while (a != 0)
 	{
